@@ -1,0 +1,20 @@
+module debouncer_tb();
+    reg raw, clk;
+    wire clean;
+   
+    debouncer uut(raw, clk, clean);
+   
+    always begin
+        #5 clk = ~clk;
+    end
+   
+    initial begin
+        clk = 0;
+        raw = 0;
+        #100 raw = 1;
+        #100 raw = 0;
+        #100 raw = 1;
+    end
+   
+   
+endmodule
